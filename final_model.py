@@ -16,11 +16,7 @@ warnings.filterwarnings('ignore')
 # Set random state for reproducibility
 RANDOM_STATE = 42
 
-print("Molecular Photostability Prediction Model")
-print("=" * 70)
-
 # Load the data
-print("\nLoading data...")
 train_df = pd.read_csv('train.csv')
 test_df = pd.read_csv('test.csv')
 
@@ -164,18 +160,3 @@ for i, row in submission.iterrows():
     print(f"{row['Batch_ID']}: {row['T80']:.2f}")
 
 print("\nSaved predictions to 'submissionfinal.csv'")
-
-# Print key findings about molecular features
-print("\nKey molecular features determining photostability:")
-print("1. Electronic structure features (TDOS/SDOS at specific energy levels)")
-print("   - TDOS3.9, TDOS4.0, TDOS3.8 reflect critical electronic structure in 3.8-4.1 eV range")
-print("2. Molecular properties:")
-print("   - Mass: Heavier molecules tend to show better photostability")
-print("   - NumHeteroatoms: Non-carbon, non-hydrogen atoms affect stability")
-print("3. Electronic energies:")
-print("   - HOMO(eV), HOMOm1(eV): Energy levels relate to oxidation potential")
-print("4. Excited state energies (S and T states):")
-print("   - S3, S6, S11: Singlet states influence energy dissipation")
-print("   - T3: Triplet states affect energy transfer mechanisms")
-print("\nThese findings align with the Nature paper, providing a data-driven approach")
-print("to understanding photostability in organic molecules.")
